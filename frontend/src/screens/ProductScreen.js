@@ -7,7 +7,6 @@ import axios from 'axios';
 
 const ProductScreen = () => {
   const { id } = useParams();
-  // const product = products.find((p) => p._id === id);
   const [product, setProduct] = useState({});
   useEffect(() => {
     const fetchProduct = async () => {
@@ -16,7 +15,7 @@ const ProductScreen = () => {
     };
 
     fetchProduct();
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <>
