@@ -5,17 +5,17 @@ import Rating from '../components/Rating';
 
 import axios from 'axios';
 
-const ProductScreen = () => {
+const ProductScreen = ({ match }) => {
   const { id } = useParams();
   const [product, setProduct] = useState({});
   useEffect(() => {
     const fetchProduct = async () => {
-      const product = await axios.get(`/api/products/${id}`);
-      setProduct(product.data);
+      const { data } = await axios.get(`/api/products/${id}`);
+      setProduct(data);
     };
 
     fetchProduct();
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [match]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <>
