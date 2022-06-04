@@ -34,7 +34,7 @@ const ProductScreen = ({ match }) => {
 
   return (
     <>
-      <Link className='btn btn-light my-3' to='/'>
+      <Link className='btn btn-light my-10' to='/'>
         Go Back
       </Link>
       {loading ? (
