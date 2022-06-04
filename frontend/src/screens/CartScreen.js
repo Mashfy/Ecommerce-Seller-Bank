@@ -18,12 +18,11 @@ import {
   ListGroupItem,
 } from 'react-bootstrap';
 import Message from '../components/Message';
-import { addToCart } from '../actions/cartActions';
+import { addToCart, removeFromCart } from '../actions/cartActions';
 
 const CartScreen = () => {
   const { id } = useParams();
   const { search } = useLocation();
-  const [searchParms] = useSearchParams();
   const navigate = useNavigate();
 
   const productID = id;
@@ -41,7 +40,7 @@ const CartScreen = () => {
   }, [dispatch, productID, qty]);
 
   const removeFromCartHandler = (id) => {
-    console.log('remove');
+    dispatch(removeFromCart(id));
   };
 
   const checkoutHandler = () => {
