@@ -76,7 +76,7 @@ const RegisterScreen = ({ location, history }) => {
         <Form.Group controlId='bankAccNo'>
           <Form.Label>Bank Account No</Form.Label>
           <Form.Control
-            type='bankAccNo'
+            type='text'
             placeholder='Enter Bank Account No'
             value={bankAccNo}
             onChange={(e) => setBankAccNo(e.target.value)}
