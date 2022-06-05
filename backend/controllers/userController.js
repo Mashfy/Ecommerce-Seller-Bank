@@ -28,7 +28,7 @@ const authUser = asyncHandler(async (req, res) => {
 // @route   POST /api/user
 // @access  Public
 const registerUser = asyncHandler(async (req, res) => {
-  const { name, email, password } = req.body;
+  const { name, email, bankAccNo, password } = req.body;
 
   const userExists = await User.findOne({ email: email });
 
@@ -40,6 +40,7 @@ const registerUser = asyncHandler(async (req, res) => {
   const user = await User.create({
     name,
     email,
+    bankAccNo,
     password,
   });
 
@@ -48,6 +49,7 @@ const registerUser = asyncHandler(async (req, res) => {
       _id: user._id,
       name: user.name,
       email: user.email,
+      bankAccNo: user.bankAccNo,
       isAdmin: user.isAdmin,
       token: generateToken(user._id),
     });
@@ -68,6 +70,7 @@ const getUserProfile = asyncHandler(async (req, res) => {
       _id: user._id,
       name: user.name,
       email: user.email,
+      bankAccNo: user.bankAccNo,
       isAdmin: user.isAdmin,
     });
   } else {
@@ -85,6 +88,7 @@ const updateUserProfile = asyncHandler(async (req, res) => {
   if (user) {
     user.name = req.body.name || user.name;
     user.email = req.body.email || user.email;
+    user.bankAccNo = req.body.bankAccNo || user.bankAccNo;
     if (req.body.password) {
       user.password = req.body.password;
     }
@@ -95,6 +99,7 @@ const updateUserProfile = asyncHandler(async (req, res) => {
       _id: updatedUser._id,
       name: updatedUser.name,
       email: updatedUser.email,
+      bankAccNo: user.bankAccNo,
       isAdmin: updatedUser.isAdmin,
       token: generateToken(updatedUser._id),
     });

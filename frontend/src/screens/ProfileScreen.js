@@ -12,6 +12,7 @@ const ProfileScreen = ({ location, history }) => {
   const navigate = useNavigate();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
+  const [bankAccNo, setBankAccNo] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [message, setMessage] = useState(null);
@@ -36,6 +37,7 @@ const ProfileScreen = ({ location, history }) => {
       } else {
         setName(user.name);
         setEmail(user.email);
+        setBankAccNo(user.bankAccNo);
       }
     }
   }, [dispatch, navigate, userInfo, user]);
@@ -45,7 +47,9 @@ const ProfileScreen = ({ location, history }) => {
     if (password !== confirmPassword) {
       setMessage('Passwords do not match');
     } else {
-      dispatch(updateUserProfile({ id: user._id, name, email, password }));
+      dispatch(
+        updateUserProfile({ id: user._id, name, email, password, bankAccNo })
+      );
     }
   };
 
@@ -74,6 +78,16 @@ const ProfileScreen = ({ location, history }) => {
               placeholder='Enter email'
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+            ></Form.Control>
+          </Form.Group>
+
+          <Form.Group controlId='bankAccNo'>
+            <Form.Label>Bank Account Number</Form.Label>
+            <Form.Control
+              type=''
+              placeholder='Enter bank Account No'
+              value={bankAccNo}
+              onChange={(e) => setBankAccNo(e.target.value)}
             ></Form.Control>
           </Form.Group>
 

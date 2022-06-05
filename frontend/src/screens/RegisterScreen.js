@@ -19,6 +19,7 @@ const RegisterScreen = ({ location, history }) => {
 
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
+  const [bankAccNo, setBankAccNo] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [message, setMessage] = useState(null);
@@ -41,7 +42,7 @@ const RegisterScreen = ({ location, history }) => {
     if (password !== confirmPassword) {
       setMessage('Passwords do not match');
     } else {
-      dispatch(register(name, email, password));
+      dispatch(register(name, email, password, bankAccNo));
     }
   };
 
@@ -69,6 +70,16 @@ const RegisterScreen = ({ location, history }) => {
             placeholder='Enter email'
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+          ></Form.Control>
+        </Form.Group>
+
+        <Form.Group controlId='bankAccNo'>
+          <Form.Label>Bank Account No</Form.Label>
+          <Form.Control
+            type='bankAccNo'
+            placeholder='Enter Bank Account No'
+            value={bankAccNo}
+            onChange={(e) => setBankAccNo(e.target.value)}
           ></Form.Control>
         </Form.Group>
 
