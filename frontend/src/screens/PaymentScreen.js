@@ -21,7 +21,7 @@ const PaymentScreen = () => {
     navigate('/shipping');
   }
 
-  const [paymentMethod, setPaymentMethod] = useState('PayPal');
+  const [paymentMethod, setPaymentMethod] = useState('EcomBank');
 
   const dispatch = useDispatch();
 
@@ -41,10 +41,10 @@ const PaymentScreen = () => {
           <Col>
             <Form.Check
               type='radio'
-              label='PayPal or Credit Card'
-              id='PayPal'
+              label='Ecom Bank'
+              id='ecombank'
               name='paymentMethod'
-              value='PayPal'
+              value='ecomBank'
               checked
               onChange={(e) => setPaymentMethod(e.target.value)}
             ></Form.Check>
