@@ -21,6 +21,8 @@ import Message from '../components/Message';
 import { addToCart, removeFromCart } from '../actions/cartActions';
 
 const CartScreen = () => {
+  // const userLogin = useSelector((state) => state.userLogin);
+  // const { userInfo } = userLogin;
   const { id } = useParams();
   const { search } = useLocation();
   const navigate = useNavigate();
@@ -31,7 +33,6 @@ const CartScreen = () => {
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
-  console.log(cartItems);
 
   useEffect(() => {
     if (productID) {
@@ -44,7 +45,7 @@ const CartScreen = () => {
   };
 
   const checkoutHandler = () => {
-    navigate('/login?redirect=shipping');
+    navigate('/login?redirect=/shipping');
   };
 
   return (
@@ -131,8 +132,8 @@ const CartScreen = () => {
               <Button
                 type='button'
                 classname='btn-block'
-                disabled={cartItems.length === 0}
                 onClick={checkoutHandler}
+                disabled={cartItems.length === 0}
               >
                 Go to Checkout
               </Button>
