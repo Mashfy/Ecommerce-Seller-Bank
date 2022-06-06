@@ -74,7 +74,9 @@ const LoginScreen = () => {
         <Col>
           New Customer?{' '}
           <Link to={redirect ? `/register?redirect=${redirect}` : '/register'}>
-            Register
+            <Button type='submit' variant='primary' size='sm'>
+              Register
+            </Button>
           </Link>
         </Col>
       </Row>
