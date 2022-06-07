@@ -46,6 +46,8 @@ const ProductListScreen = ({ history, match }) => {
     }
     if (successCreate) {
       navigate(`/admin/product/${createdProduct._id}/edit`);
+    } else {
+      dispatch(listProducts());
     }
   }, [
     dispatch,
