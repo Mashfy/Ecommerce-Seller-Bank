@@ -92,6 +92,16 @@ const ProfileScreen = ({ location, history }) => {
               ></Form.Control>
             </Form.Group>
 
+            <Form.Group controlId='bankAccNo'>
+              <Form.Label>Bank Acc No</Form.Label>
+              <Form.Control
+                type='text'
+                placeholder='Enter bank account'
+                value={bankAccNo}
+                onChange={(e) => setEmail(e.target.value)}
+              ></Form.Control>
+            </Form.Group>
+
             <Form.Group controlId='password'>
               <Form.Label>Password</Form.Label>
               <Form.Control

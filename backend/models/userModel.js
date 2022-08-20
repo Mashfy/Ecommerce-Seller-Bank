@@ -14,7 +14,7 @@ const userSchema = mongoose.Schema(
     },
     bankAccNo: {
       type: String,
-      required: true,
+
       unique: true,
     },
     password: {

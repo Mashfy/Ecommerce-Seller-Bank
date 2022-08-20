@@ -9,15 +9,15 @@ const users = [
     isAdmin: true,
   },
   {
-    name: 'Fahim Khan',
-    email: 'fahim@example.com',
-    bankAccNo: '123fahim',
+    name: 'Test 1',
+    email: 'test1@example.com',
+    bankAccNo: '123test',
     password: bcrypt.hashSync('123456', 10),
   },
   {
-    name: 'Mashfy Alam',
-    email: 'mashfy@example.com',
-    bankAccNo: '123mashfy',
+    name: 'Test 2',
+    email: 'test2@example.com',
+    bankAccNo: '123test1',
     password: bcrypt.hashSync('123456', 10),
   },
 ];
