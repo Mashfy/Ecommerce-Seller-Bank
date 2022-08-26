@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect } from 'react';
 import {
   Button,
   Card,
@@ -7,22 +7,22 @@ import {
   ListGroup,
   ListGroupItem,
   Row,
-} from "react-bootstrap";
-import { useDispatch, useSelector } from "react-redux";
-import { Link, useNavigate, useParams } from "react-router-dom";
+} from 'react-bootstrap';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import {
   getOrderDetails,
   payOrder,
   deliverOrder,
-} from "../actions/orderActions";
-import Loader from "../components/Loader";
-import Message from "../components/Message";
-import axios from "axios";
+} from '../actions/orderActions';
+import Loader from '../components/Loader';
+import Message from '../components/Message';
+import axios from 'axios';
 
 import {
   ORDER_PAY_RESET,
   ORDER_DELIVER_RESET,
-} from "../constants/orderConstants";
+} from '../constants/orderConstants';
 
 const OrderScreen = ({ match }) => {
   const { id } = useParams();
@@ -58,7 +58,7 @@ const OrderScreen = ({ match }) => {
 
   useEffect(() => {
     if (!userInfo) {
-      navigate("/login");
+      navigate('/login');
     }
     if (!order || successPay || successDeliver) {
       dispatch({ type: ORDER_PAY_RESET });
@@ -76,20 +76,20 @@ const OrderScreen = ({ match }) => {
   ]);
 
   const payNowHandler = async (total_amount) => {
-    console.log(order.user)
     const paymentdata = {
       email: order.user.email,
       account_number: order.user.account_number,
       amount: total_amount,
-      receiver_email: "admin@gmail.com",
+      receiver_email: 'admin@gmail.com',
     };
+    console.log(paymentdata);
     try {
       const bank_api_call = axios.post(`/bankapi/payment`, paymentdata);
-      console.log("promise er age:" + bank_api_call);
+      console.log('promise er age:' + bank_api_call);
 
       bank_api_call.then(function (result) {
-        console.log("ekhane bank_api: " + result.data);
-        console.log("hoise mama");
+        console.log('ekhane bank_api: ' + result.data);
+        console.log('hoise mama');
         const DataReceivedFromBankApi = {
           id: result.data.id,
           email: result.data.email,
@@ -108,34 +108,34 @@ const OrderScreen = ({ match }) => {
   return loading ? (
     <Loader />
   ) : error ? (
-    <Message variant="danger">{error}</Message>
+    <Message variant='danger'>{error}</Message>
   ) : (
     <>
       <h1>Order {order._id}</h1>
       <Row>
         <Col md={8}>
-          <ListGroup variant="flush">
+          <ListGroup variant='flush'>
             <ListGroup.Item>
               <h2>Shipping</h2>
               <p>
                 <strong>Name: </strong> {order.user.name}
               </p>
               <p>
-                <strong>Email: </strong>{" "}
+                <strong>Email: </strong>{' '}
                 <a href={`mailto:${order.user.email}`}>{order.user.email}</a>
               </p>
               <p>
                 <strong>Address:</strong>
-                {order.shippingAddress.address}, {order.shippingAddress.city}{" "}
-                {order.shippingAddress.postalCode},{" "}
+                {order.shippingAddress.address}, {order.shippingAddress.city}{' '}
+                {order.shippingAddress.postalCode},{' '}
                 {order.shippingAddress.country}
               </p>
               {order.isDelivered ? (
-                <Message variant="success">
+                <Message variant='success'>
                   Delivered on {order.deliveredAt}
                 </Message>
               ) : (
-                <Message variant="danger">Not Delivered</Message>
+                <Message variant='danger'>Not Delivered</Message>
               )}
             </ListGroup.Item>
 
@@ -146,9 +146,9 @@ const OrderScreen = ({ match }) => {
                 {order.paymentMethod}
               </p>
               {order.isPaid ? (
-                <Message variant="success">Paid on {order.paidAt}</Message>
+                <Message variant='success'>Paid on {order.paidAt}</Message>
               ) : (
-                <Message variant="danger">Not Paid</Message>
+                <Message variant='danger'>Not Paid</Message>
               )}
             </ListGroup.Item>
 
@@ -157,7 +157,7 @@ const OrderScreen = ({ match }) => {
               {order.orderItems.length === 0 ? (
                 <Message>Order is empty</Message>
               ) : (
-                <ListGroup variant="flush">
+                <ListGroup variant='flush'>
                   {order.orderItems.map((item, index) => (
                     <ListGroup.Item key={index}>
                       <Row>
@@ -187,7 +187,7 @@ const OrderScreen = ({ match }) => {
         </Col>
         <Col md={4}>
           <Card>
-            <ListGroup variant="flush">
+            <ListGroup variant='flush'>
               <ListGroup.Item>
                 <h2>Order Summary</h2>
               </ListGroup.Item>
@@ -220,8 +220,8 @@ const OrderScreen = ({ match }) => {
               <ListGroup.Item>
                 {loadingPay && <Loader />}
                 <Button
-                  type="button"
-                  className="btn-block"
+                  type='button'
+                  className='btn-block'
                   onClick={() => {
                     payNowHandler(order.totalPrice);
                   }}
@@ -237,8 +237,8 @@ const OrderScreen = ({ match }) => {
               !order.isDelivered && (
                 <ListGroupItem>
                   <Button
-                    type="button"
-                    className="btn btn-block"
+                    type='button'
+                    className='btn btn-block'
                     onClick={deliverHandler}
                   >
                     Mark As Delivered

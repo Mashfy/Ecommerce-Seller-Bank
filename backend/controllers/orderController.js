@@ -1,12 +1,9 @@
-import asyncHandler from 'express-async-handler';
-import Order from '../models/orderModel.js';
+import asyncHandler from "express-async-handler";
+import Order from "../models/orderModel.js";
 
-// Controllers are middleware that react to spesific calls to the api determined by the routers.
-
-// @desc Create new order
-// @route POST /api/orders
-// @access Private
-
+// @desc    Create new order
+// @route   POST /api/orders
+// @access  Private
 const addOrderItems = asyncHandler(async (req, res) => {
   const {
     orderItems,
@@ -17,14 +14,15 @@ const addOrderItems = asyncHandler(async (req, res) => {
     shippingPrice,
     totalPrice,
   } = req.body;
+
   if (orderItems && orderItems.length === 0) {
     res.status(400);
-    throw new Error('No order items');
+    throw new Error("No order items");
     return;
   } else {
     const order = new Order({
-      user: req.user._id,
       orderItems,
+      user: req.user._id,
       shippingAddress,
       paymentMethod,
       itemsPrice,
@@ -32,7 +30,9 @@ const addOrderItems = asyncHandler(async (req, res) => {
       shippingPrice,
       totalPrice,
     });
+
     const createdOrder = await order.save();
+
     res.status(201).json(createdOrder);
   }
 });
@@ -42,15 +42,15 @@ const addOrderItems = asyncHandler(async (req, res) => {
 // @access  Private
 const getOrderById = asyncHandler(async (req, res) => {
   const order = await Order.findById(req.params.id).populate(
-    'user',
-    'name email'
+    "user",
+    "name email account_number"
   );
 
   if (order) {
     res.json(order);
   } else {
     res.status(404);
-    throw new Error('Order not found');
+    throw new Error("Order not found");
   }
 });
 
@@ -67,7 +67,7 @@ const updateOrderToPaid = asyncHandler(async (req, res) => {
       id: req.body.id,
       status: req.body.status,
       update_time: req.body.update_time,
-      email_address: req.body.payer.email_address,
+      email_address: req.body.email,
     };
 
     const updatedOrder = await order.save();
@@ -75,7 +75,7 @@ const updateOrderToPaid = asyncHandler(async (req, res) => {
     res.json(updatedOrder);
   } else {
     res.status(404);
-    throw new Error('Order not found');
+    throw new Error("Order not found");
   }
 });
 
@@ -94,8 +94,16 @@ const updateOrderToDelivered = asyncHandler(async (req, res) => {
     res.json(updatedOrder);
   } else {
     res.status(404);
-    throw new Error('Order not found');
+    throw new Error("Order not found");
   }
+});
+
+// @desc    Get all orders
+// @route   GET /api/orders
+// @access  Private/Admin
+const getOrders = asyncHandler(async (req, res) => {
+  const orders = await Order.find({}).populate("user", "id name");
+  res.json(orders);
 });
 
 // @desc    Get logged in user orders
@@ -106,19 +114,11 @@ const getMyOrders = asyncHandler(async (req, res) => {
   res.json(orders);
 });
 
-// @desc    Get all orders
-// @route   GET /api/orders
-// @access  Private/Admin
-const getOrders = asyncHandler(async (req, res) => {
-  const orders = await Order.find({}).populate('user', 'id name');
-  res.json(orders);
-});
-
 export {
   addOrderItems,
   getOrderById,
-  getMyOrders,
   updateOrderToPaid,
   updateOrderToDelivered,
   getOrders,
+  getMyOrders,
 };
