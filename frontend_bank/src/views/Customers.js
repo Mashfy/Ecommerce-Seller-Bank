@@ -44,8 +44,9 @@ export default function Customers() {
   const [data, setData] = useState([]);
   useEffect(async () => {
     await axios
-      .get('http://127.0.0.1:7000/bankapi/users/profile')
+      .get('http://127.0.0.1:7000/bankapi/users/profiles')
       .then((res) => {
+        console.log(res.data);
         setData(res.data);
       });
   }, []);
@@ -58,7 +59,7 @@ export default function Customers() {
               <StyledTableCell>S No.</StyledTableCell>
               <StyledTableCell>Name</StyledTableCell>
               {/* <StyledTableCell align="right">Calories</StyledTableCell> */}
-              <StyledTableCell align='right'>Amount</StyledTableCell>
+              <StyledTableCell align='right'>Balance</StyledTableCell>
               <StyledTableCell align='right'>Transfer</StyledTableCell>
             </TableRow>
           </TableHead>
@@ -73,7 +74,9 @@ export default function Customers() {
                     {item.name}
                   </StyledTableCell>
                   {/* <StyledTableCell align="right">{item.name}</StyledTableCell> */}
-                  <StyledTableCell align='right'>{item.amount}</StyledTableCell>
+                  <StyledTableCell align='right'>
+                    {item.balance}
+                  </StyledTableCell>
                   <StyledTableCell align='right'>
                     <Link to={`/customers/${item._id}`}>
                       <Button variant='contained' color='primary'>

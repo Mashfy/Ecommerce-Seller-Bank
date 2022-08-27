@@ -34,7 +34,6 @@ const OrderScreen = ({ match }) => {
 
   const orderDetails = useSelector((state) => state.orderDetails);
   const { order, loading, error } = orderDetails;
-  // console.log("order in orderscreen ", order);
 
   const orderPay = useSelector((state) => state.orderPay);
   const { loading: loadingPay, success: successPay } = orderPay;
@@ -82,14 +81,9 @@ const OrderScreen = ({ match }) => {
       amount: total_amount,
       receiver_email: 'admin@gmail.com',
     };
-    console.log(paymentdata);
     try {
       const bank_api_call = axios.post(`/bankapi/payment`, paymentdata);
-      console.log('promise er age:' + bank_api_call);
-
       bank_api_call.then(function (result) {
-        console.log('ekhane bank_api: ' + result.data);
-        console.log('hoise mama');
         const DataReceivedFromBankApi = {
           id: result.data.id,
           email: result.data.email,

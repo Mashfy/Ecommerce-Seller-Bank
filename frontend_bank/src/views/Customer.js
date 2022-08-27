@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useContext } from "react";
-import { useHistory, useParams } from "react-router-dom";
-import axios from "axios";
+import React, { useState, useEffect, useContext } from 'react';
+import { useHistory, useParams } from 'react-router-dom';
+import axios from 'axios';
 import {
   Grid,
   Stepper,
@@ -19,30 +19,27 @@ import {
   Select as MuiSelect,
   Button,
   Select,
-} from "@material-ui/core";
-import "./Customer.css";
-import InputAdornment from "@material-ui/core/InputAdornment";
-import { multiStepContext } from "../Context/StepContext";
+} from '@material-ui/core';
+import './Customer.css';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import { multiStepContext } from '../Context/StepContext';
 
 export default function Customer() {
   const { id } = useParams();
-  const [id2, setId2] = useState("");
-  const [amount, setAmount] = useState("");
-  const [data, setData] = useState("");
+  const [id2, setId2] = useState('');
+  const [amount, setAmount] = useState('');
+  const [data, setData] = useState('');
   const [user, setUser] = useState([]);
   // const { transferData ,setTransferData, sendMoney } = useContext(multiStepContext);
   const history = useHistory();
   useEffect(async () => {
     getData(id);
-    await axios.get("/customers").then((res) => {
+    await axios.get('/customers').then((res) => {
       setUser(res.data);
     });
   }, [id]);
 
-  console.log(data);
-
   const getData = async (id) => {
-    console.log(id);
     const response = await axios.get(`/customers/${id}`);
     if (response) {
       setData(response.data);
@@ -50,15 +47,12 @@ export default function Customer() {
   };
 
   async function sendMoney() {
-    console.log(transferData);
-   
-    await axios.put("/customer/money", transferData);
-    await axios.post("/transactions", transferData);
-    history.push("/customers");
+    await axios.put('/customer/money', transferData);
+    await axios.post('/transactions', transferData);
+    history.push('/customers');
   }
 
   const count = Number(amount);
-
 
   const transferData = {
     count,
@@ -68,17 +62,17 @@ export default function Customer() {
 
   return (
     <div>
-      <div className="app">
-        <div className="details">
-          <div className="big-img">
+      <div className='app'>
+        <div className='details'>
+          <div className='big-img'>
             <img
-              src="../assets/images/sampleProfile.png"
-              style={{ width: "70%" }}
+              src='../assets/images/sampleProfile.png'
+              style={{ width: '70%' }}
               alt={data.DOB}
             />
           </div>
-          <div className="box">
-            <div className="row">
+          <div className='box'>
+            <div className='row'>
               <h4>
                 {data.name}
                 <h6>
@@ -92,12 +86,12 @@ export default function Customer() {
                 <i></i> {data.gender}
               </span>
             </div>
-            <div className="row">
+            <div className='row'>
               <FormControl>
-                <InputLabel id="countrySelectLabel">Transfer to</InputLabel>
+                <InputLabel id='countrySelectLabel'>Transfer to</InputLabel>
                 <Select
-                  labelId="countrySelectLabel"
-                  id="countrySelect"
+                  labelId='countrySelectLabel'
+                  id='countrySelect'
                   onChange={(e) => setId2(e.target.value)}
                   value={id2}
                 >
@@ -111,9 +105,9 @@ export default function Customer() {
                 </Select>
               </FormControl>
               <TextField
-                label="Transfer Amount"
-                id="standard-start-adornment"
-                type="number"
+                label='Transfer Amount'
+                id='standard-start-adornment'
+                type='number'
                 value={amount}
                 onChange={(event) => setAmount(event.target.value)}
                 error={amount > data.amount}
@@ -121,23 +115,23 @@ export default function Customer() {
                   (console.log(amount),
                   console.log(data.amount),
                   amount > data.amount
-                    ? "The amount is greater than your balance"
-                    : " ")
+                    ? 'The amount is greater than your balance'
+                    : ' ')
                 }
                 InputProps={{
                   startAdornment: (
-                    <InputAdornment position="start">₹</InputAdornment>
+                    <InputAdornment position='start'>₹</InputAdornment>
                   ),
                 }}
               />
             </div>
             <div>
               {amount > data.amount ? (
-                <Button variant="contained" disabled>
+                <Button variant='contained' disabled>
                   Send
                 </Button>
               ) : (
-                <Button variant="contained" color="primary" onClick={sendMoney}>
+                <Button variant='contained' color='primary' onClick={sendMoney}>
                   Send
                 </Button>
               )}

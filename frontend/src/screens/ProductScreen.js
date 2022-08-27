@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 import {
   Button,
   Card,
@@ -7,13 +7,13 @@ import {
   ListGroup,
   Row,
   Form,
-} from "react-bootstrap";
-import { useDispatch, useSelector } from "react-redux";
-import { Link, useParams, useNavigate } from "react-router-dom";
-import { listProductDetails } from "../actions/productActions";
-import Loader from "../components/Loader";
-import Message from "../components/Message";
-import Rating from "../components/Rating";
+} from 'react-bootstrap';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, useParams, useNavigate } from 'react-router-dom';
+import { listProductDetails } from '../actions/productActions';
+import Loader from '../components/Loader';
+import Message from '../components/Message';
+import Rating from '../components/Rating';
 
 const ProductScreen = () => {
   const [qty, setQty] = useState(1);
@@ -36,21 +36,20 @@ const ProductScreen = () => {
 
   return (
     <>
-      <Link className="btn btn-light my-3" to="/">
+      <Link className='btn btn-light my-3' to='/'>
         Go Back
       </Link>
       {loading ? (
         <Loader />
       ) : error ? (
-        <Message variant="danger">{error}</Message>
+        <Message variant='danger'>{error}</Message>
       ) : (
         <Row className>
           <Col md={6}>
-            {/* {console.log("product screen ", product.image)} */}
             <Image src={product.image} alt={product.name} fluid />
           </Col>
           <Col md={3}>
-            <ListGroup variant="flush" className="text-break">
+            <ListGroup variant='flush' className='text-break'>
               <ListGroup.Item>
                 <h3>{product.name}</h3>
               </ListGroup.Item>
@@ -68,7 +67,7 @@ const ProductScreen = () => {
           </Col>
           <Col md={3}>
             <Card>
-              <ListGroup variant="flush">
+              <ListGroup variant='flush'>
                 <ListGroup.Item>
                   <Row>
                     <Col>Price:</Col>
@@ -81,7 +80,7 @@ const ProductScreen = () => {
                   <Row>
                     <Col>Status:</Col>
                     <Col>
-                      {product.countInStock > 0 ? "In Stock" : "Out of Stock"}
+                      {product.countInStock > 0 ? 'In Stock' : 'Out of Stock'}
                     </Col>
                   </Row>
                 </ListGroup.Item>
@@ -92,7 +91,7 @@ const ProductScreen = () => {
                       <Col>Qty</Col>
                       <Col>
                         <Form.Control
-                          as="select"
+                          as='select'
                           value={qty}
                           onChange={(e) => setQty(e.target.value)}
                         >
@@ -110,8 +109,8 @@ const ProductScreen = () => {
                 <ListGroup.Item>
                   <Button
                     onClick={addToCartHandler}
-                    className="btn col-12"
-                    type="button"
+                    className='btn col-12'
+                    type='button'
                     disabled={product.countInStock === 0}
                   >
                     Add To Cart

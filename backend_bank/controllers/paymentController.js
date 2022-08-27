@@ -7,7 +7,6 @@ import User from '../models/userModel.js';
 // @access  Private
 const payMoney = asyncHandler(async (req, res) => {
   const { email, account_number, amount, receiver_email } = req.body;
-  console.log(req.body);
 
   const user = await User.findOne({ account_number });
 
@@ -47,4 +46,10 @@ const payMoney = asyncHandler(async (req, res) => {
   }
 });
 
-export { payMoney };
+const getTransactions = asyncHandler(async (req, res) => {
+  const transaction = await Transaction.find({});
+
+  res.json(transaction);
+});
+
+export { payMoney, getTransactions };
