@@ -5,11 +5,11 @@
   "main": "server.js",
   "type": "module",
   "scripts": {
-    "start": "node backend_ecom/server",
-    "server": "nodemon backend_ecom/server",
-    "client": "npm start --prefix frontend_ecom",
-    "bank": "nodemon backend_bank/server",
-    "dev": "concurrently \"npm run server\" \"npm run client\" \"npm run bank\"",
+    "ecom_server": "nodemon backend_ecom/server",
+    "ecom_client": "npm start --prefix frontend_ecom",
+    "bank_server": "nodemon backend_bank/server",
+    "bank_client": "npm start --prefix frontend_bank",
+    "dev": "concurrently \"npm run ecom_server\" \"npm run ecom_client\" \"npm run bank_server\" \"npm run bank_client\"",
     "data:import": "node backend/seeder",
     "data:destroy": "node backend/seeder -d"
   },
