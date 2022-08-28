@@ -148,7 +148,6 @@ export const updateProduct = (product) => async (dispatch, getState) => {
       },
     };
 
-    // we are making a post request but not sending any data. That's why sent a empty object
     const { data } = await axios.put(
       `http://127.0.0.1:5000/api/products/${product._id}`,
       product,

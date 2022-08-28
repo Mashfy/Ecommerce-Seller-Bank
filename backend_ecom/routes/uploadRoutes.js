@@ -1,9 +1,9 @@
-import path from "path";
-import express from "express";
-import multer from "multer";
+import path from 'path';
+import express from 'express';
+import multer from 'multer';
 const router = express.Router();
 
-const UPLOADS_FOLDER = "./frontend/public/uploads";
+const UPLOADS_FOLDER = './frontend_ecom/public/uploads';
 
 const storage = multer.diskStorage({
   destination(req, file, cb) {
@@ -25,7 +25,7 @@ function checkFileType(file, cb) {
   if (extname && mimetype) {
     return cb(null, true);
   } else {
-    cb("Images only!");
+    cb('Images only!');
   }
 }
 
@@ -39,11 +39,11 @@ const upload = multer({
   },
 });
 
-router.post("/", upload.single("image"), (req, res) => {
-  console.log("uploaded path ", `/${req.file.path}`);
-  const strippedPath = `/${req.file.path}`.split("uploads")[1];
+router.post('/', upload.single('image'), (req, res) => {
+  console.log('uploaded path ', `/${req.file.path}`);
+  const strippedPath = `/${req.file.path}`.split('uploads')[1];
   const finalPath = `/uploads${strippedPath}`;
-  console.log("final path ", finalPath);
+  console.log('final path ', finalPath);
   res.send(finalPath);
 });
 
