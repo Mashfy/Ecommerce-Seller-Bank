@@ -31,8 +31,8 @@ export default function Landing() {
                     Banking System App.
                   </h1>
                   <p className='mt-4 text-lg text-gray-300'>
-                    This is a simple banking system app through which management
-                    can see the customers and the transactions.
+                    This is a simple banking system management app through which
+                    management can see the customers and the transactions.
                   </p>
                 </div>
               </div>
