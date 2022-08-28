@@ -16,11 +16,11 @@ app.use(express.json());
 app.use(cors());
 
 app.get('/bankapi', (req, res) => {
-  res.send('API is running...');
-});
-app.get('/', (req, res) => {
   res.send('Bank API is running...');
 });
+// app.get('/', (req, res) => {
+//   res.send('Bank API is running...');
+// });
 app.use('/bankapi/users', userRoutes);
 app.use('/bankapi/payment', paymentRoutes);
 app.use(notFound);

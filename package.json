@@ -11,7 +11,7 @@
     "bank_server": "nodemon backend_bank/server",
     "bank_client": "npm start --prefix frontend_bank",
     "seller_server": "nodemon backend_seller/server",
-    "dev": "concurrently \"npm run ecom_server\" \"npm run ecom_client\" \"npm run bank_server\" \"npm run bank_client\"",
+    "dev": "concurrently \"npm run ecom_server\" \"npm run ecom_client\" \"npm run bank_server\" \"npm run bank_client\" \"npm run seller_server\"",
     "data:importEcom": "node backend_ecom/seeder",
     "data:destroyEcom": "node backend_ecom/seeder -d",
     "data:importSeller": "node backend_seller/seeder",
