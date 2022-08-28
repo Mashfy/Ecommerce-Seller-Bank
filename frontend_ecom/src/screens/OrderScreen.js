@@ -82,7 +82,10 @@ const OrderScreen = ({ match }) => {
       receiver_account_number: '111423192491172311192292132523',
     };
     try {
-      const bank_api_call = axios.post(`/bankapi/payment`, paymentdata);
+      const bank_api_call = axios.post(
+        `http://127.0.0.1:7000/bankapi/payment`,
+        paymentdata
+      );
       bank_api_call.then(function (result) {
         const DataReceivedFromBankApi = {
           id: result.data.id,

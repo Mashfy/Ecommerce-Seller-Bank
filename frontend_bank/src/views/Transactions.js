@@ -47,16 +47,35 @@ export default function Transactions() {
     const { data } = await axios.get(
       'http://127.0.0.1:7000/bankapi/payment/transactions'
     );
-    console.log({ data });
     setTransactions(data);
   }, []);
+  const [data, setData] = useState([]);
+  useEffect(async () => {
+    await axios
+      .get('http://127.0.0.1:7000/bankapi/users/profiles')
+      .then((res) => {
+        setData(res.data);
+      });
+  }, []);
+
+  const transaction_username = (temp1) => {
+    let name = '';
+    data.map((temp) => {
+      if (temp._id === temp1) {
+        name = temp.name;
+      }
+    });
+    console.log(name);
+    return name;
+  };
+  console.log(data);
   return (
     <div>
       <TableContainer component={Paper}>
         <Table className={classes.table} aria-label='customized table'>
           <TableHead>
             <TableRow>
-              <StyledTableCell>S No.</StyledTableCell>
+              <StyledTableCell>Transactions ID.</StyledTableCell>
               <StyledTableCell>Sender Id</StyledTableCell>
               <StyledTableCell>Receiver Id</StyledTableCell>
               {/* <StyledTableCell align='right'>Calories</StyledTableCell> */}
@@ -69,14 +88,14 @@ export default function Transactions() {
               return (
                 <StyledTableRow key={item._id}>
                   <StyledTableCell component='th' scope='row'>
-                    {index + 1}
+                    {item._id}
                   </StyledTableCell>
                   <StyledTableCell align='left' component='th' scope='row'>
-                    {item.sender}
+                    {transaction_username(item.sender)}
                   </StyledTableCell>
                   {/* <StyledTableCell align="right">{item.name}</StyledTableCell> */}
                   <StyledTableCell align='left'>
-                    {item.receiver}
+                    {transaction_username(item.receiver)}
                   </StyledTableCell>
                   <StyledTableCell align='left'>
                     {item.transactionAmount}
