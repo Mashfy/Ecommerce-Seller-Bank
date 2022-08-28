@@ -5,9 +5,9 @@
   "main": "server.js",
   "type": "module",
   "scripts": {
-    "start": "node backend/server",
-    "server": "nodemon backend/server",
-    "client": "npm start --prefix frontend",
+    "start": "node backend_ecom/server",
+    "server": "nodemon backend_ecom/server",
+    "client": "npm start --prefix frontend_ecom",
     "bank": "nodemon backend_bank/server",
     "dev": "concurrently \"npm run server\" \"npm run client\" \"npm run bank\"",
     "data:import": "node backend/seeder",
