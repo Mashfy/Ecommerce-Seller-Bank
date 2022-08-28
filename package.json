@@ -5,6 +5,7 @@
   "main": "server.js",
   "type": "module",
   "scripts": {
+    "start": "node backend_ecom/server",
     "ecom_server": "nodemon backend_ecom/server",
     "ecom_client": "npm start --prefix frontend_ecom",
     "bank_server": "nodemon backend_bank/server",
