@@ -79,7 +79,7 @@ const OrderScreen = ({ match }) => {
       email: order.user.email,
       account_number: order.user.account_number,
       amount: total_amount,
-      receiver_email: 'admin@gmail.com',
+      receiver_account_number: '111423192491172311192292132523',
     };
     try {
       const bank_api_call = axios.post(`/bankapi/payment`, paymentdata);
