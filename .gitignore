@@ -3,7 +3,7 @@
 # dependencies
 node_modules
 # backend_seller
-frontend_seller
+# frontend_seller
 node_modules/
 /.pnp
 .pnp.js
