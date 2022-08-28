@@ -2,7 +2,7 @@
 
 # dependencies
 node_modules
-backend_seller
+# backend_seller
 frontend_seller
 node_modules/
 /.pnp
