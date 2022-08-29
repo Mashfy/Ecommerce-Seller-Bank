@@ -75,7 +75,7 @@ go to root directory, then run
 npm run dev
 ```
 
-## Voila your project is running
+### Project should run now
 
 ### Frontend Screenshots
 
