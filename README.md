@@ -79,7 +79,8 @@ npm run dev
 
 ### Frontend Screenshots
 
-**Ecommerce:**
+## Ecommerce:
+
 ![](screenshots/ecom1.jpg)
 ![](screenshots/ecom2.jpg)
 ![](screenshots/ecom3.jpg)
@@ -89,13 +90,17 @@ npm run dev
 ![](screenshots/ecom7.jpg)
 ![](screenshots/ecom8.jpg)![](screenshots/ecom9.jpg)![](screenshots/ecom10.jpg)
 </br></br>
-**Supplier:**
+
+## Supplier:
+
 ![](screenshots/supplier1.jpg)
 ![](screenshots/supplier2.jpg)
 ![](screenshots/supplier3.jpg)
 ![](screenshots/supplier4.jpg)
 </br></br>
-**Bank:**
+
+## Bank:
+
 ![](screenshots/bank1.jpg)
 ![](screenshots/bank2.jpg)
 ![](screenshots/bank3.jpg)
