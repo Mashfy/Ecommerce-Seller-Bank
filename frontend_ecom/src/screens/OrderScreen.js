@@ -143,9 +143,19 @@ const OrderScreen = ({ match }) => {
                 {order.paymentMethod}
               </p>
               {order.isPaid ? (
-                <Message variant='success'>Paid on {order.paidAt}</Message>
+                <Message variant='success'>Paid on: {order.paidAt}</Message>
               ) : (
                 <Message variant='danger'>Not Paid</Message>
+              )}
+            </ListGroup.Item>
+            <ListGroup.Item>
+              <h2>Transaction Information</h2>
+              {order.isPaid ? (
+                <Message variant='success'>
+                  Transaction Id: {order.paymentResult.id}
+                </Message>
+              ) : (
+                <Message variant='danger'>Please do the transacton</Message>
               )}
             </ListGroup.Item>
 
