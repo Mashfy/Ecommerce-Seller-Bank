@@ -1,70 +1,90 @@
-# Getting Started with Create React App
+### The project is an e-commerce system affiliated with two more individual organisations (entities). An E-commerce organization that showcases products to the users, a supplier supplies the products that are currently available to supplier and lastly a bank organization which will manage and keep the transactions among these three organizations.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+</br></br>
+**Run this project**</br>
 
-## Available Scripts
+### 1. Configure **.env** file:
 
-In the project directory, you can run:
+open a .env file in your root directories and set the env variables. open a cluster and create 3 collection named bank, ecom, seller
 
-### `npm start`
+```
+NODE_ENV = development
+PORT = <ecommerce api port>
+PORT_BANK = <bank api port>
+PORT_SELLER = <seller api port>
+MONGO_URI = <ecommerce connection string>
+MONGO_URI_BANK = <bank connection string>
+MONGO_URI_SELLER = <seller connection string>
+JWT_SECRET_ECOM = <secret string>
+JWT_SECRET_SELLER = <secret string>
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 2. Install the packages in root package,json
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```
+npm i
+```
 
-### `npm test`
+### 3. Install the package.json for frontend_ecom.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Go to frontend_ecom
 
-### `npm run build`
+```
+cd frontend_ecom
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Then
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
+npm i
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 4. Install the package.json for frontend_seller.
 
-### `npm run eject`
+Go to frontend_seller
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```
+cd frontend_seller
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Then
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```
+npm i
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### 5. Install the package.json for frontend_bank.
 
-## Learn More
+Go to frontend_bank
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
+cd frontend_bank
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Then
 
-### Code Splitting
+```
+npm i
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### 6. Set up the data for the bank in postman first
 
-### Analyzing the Bundle Size
+go to root directory, then run
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```
+npm run dev
+```
 
-### Making a Progressive Web App
+## Voila your project is running
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Frontend Screenshots
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+**Ecommerce:**
+![](screenshots/ecom1.jpg)
+![](screenshots/ecom2.jpg)
+![](screenshots/ecom3.jpg)
+![](screenshots/ecom4.jpg)
+![](screenshots/ecom5.jpg)
+![](screenshots/ecom6.jpg)
+![](screenshots/ecom7.jpg)
+![](screenshots/ecom8.jpg)![](screenshots/ecom9.jpg)![](screenshots/ecom10.jpg)
