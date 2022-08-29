@@ -23,7 +23,7 @@ app.use(express.json());
 app.use(cors());
 
 app.get('/', (req, res) => {
-  res.send('Seller API is running...');
+  res.send('Supplier API is running...');
 });
 
 app.use('/api/products', productRoutes);
