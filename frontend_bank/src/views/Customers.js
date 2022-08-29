@@ -59,8 +59,8 @@ export default function Customers() {
               <StyledTableCell>S No.</StyledTableCell>
               <StyledTableCell>Name</StyledTableCell>
               {/* <StyledTableCell align="right">Calories</StyledTableCell> */}
-              <StyledTableCell align='right'>Balance</StyledTableCell>
-              <StyledTableCell align='right'>Transfer</StyledTableCell>
+              <StyledTableCell align='center'>Balance</StyledTableCell>
+              {/* <StyledTableCell align='right'>Transfer</StyledTableCell> */}
             </TableRow>
           </TableHead>
           <TableBody>
@@ -74,16 +74,16 @@ export default function Customers() {
                     {item.name}
                   </StyledTableCell>
                   {/* <StyledTableCell align="right">{item.name}</StyledTableCell> */}
-                  <StyledTableCell align='right'>
+                  <StyledTableCell align='center'>
                     {item.balance}
                   </StyledTableCell>
-                  <StyledTableCell align='right'>
+                  {/* <StyledTableCell align='right'>
                     <Link to={`/customers/${item._id}`}>
                       <Button variant='contained' color='primary'>
                         Transfer
                       </Button>
                     </Link>
-                  </StyledTableCell>
+                  </StyledTableCell> */}
                   {/* <StyledTableCell align="right">{row.protein}</StyledTableCell> */}
                 </StyledTableRow>
               );
