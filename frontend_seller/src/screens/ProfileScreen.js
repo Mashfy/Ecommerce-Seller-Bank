@@ -69,7 +69,7 @@ const ProfileScreen = ({ location, history }) => {
 
   return (
     <Col class='p-2 bg-light border'>
-      <h2>User Profile</h2>
+      <h2>Supplier Profile</h2>
       {message && <Message variant='danger'>{message}</Message>}
       {}
       {success && <Message variant='success'>Profile Updated</Message>}

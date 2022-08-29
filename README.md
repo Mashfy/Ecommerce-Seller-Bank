@@ -88,3 +88,14 @@ npm run dev
 ![](screenshots/ecom6.jpg)
 ![](screenshots/ecom7.jpg)
 ![](screenshots/ecom8.jpg)![](screenshots/ecom9.jpg)![](screenshots/ecom10.jpg)
+</br></br>
+**Supplier:**
+![](screenshots/supplier1.jpg)
+![](screenshots/supplier2.jpg)
+![](screenshots/supplier3.jpg)
+![](screenshots/supplier4.jpg)
+</br></br>
+**Bank:**
+![](screenshots/bank1.jpg)
+![](screenshots/bank2.jpg)
+![](screenshots/bank3.jpg)
