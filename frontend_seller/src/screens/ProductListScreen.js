@@ -58,6 +58,14 @@ const ProductListScreen = () => {
     createdProduct,
   ]);
 
+  useEffect(() => {
+    if (userInfo && userInfo.isSeller) {
+      dispatch(listProducts());
+    } else {
+      navigate('/login');
+    }
+  }, [dispatch, navigate, userInfo]);
+
   const deleteHandler = (id) => {
     if (window.confirm('Are you sure')) {
       dispatch(deleteProduct(id));
