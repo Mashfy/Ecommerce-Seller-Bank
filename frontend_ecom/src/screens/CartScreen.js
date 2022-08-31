@@ -59,7 +59,7 @@ const CartScreen = () => {
                   <Col md={3}>
                     <Link to={`/product/${item.product}`}>{item.name}</Link>
                   </Col>
-                  <Col md={2}>${item.price * 1.1}</Col>
+                  <Col md={2}>${(item.price * 1.1).toFixed(3)}</Col>
                   <Col md={2}>
                     <Form.Control
                       as='select'
