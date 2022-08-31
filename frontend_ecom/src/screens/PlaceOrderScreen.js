@@ -100,8 +100,8 @@ const PlaceOrderScreen = () => {
                           </Link>
                         </Col>
                         <Col md={4}>
-                          {item.qty} x ${item.price * 1.1} = $
-                          {item.qty * item.price * 1.1}
+                          {item.qty} x ${(item.price * 1.1).toFixed(3)} = $
+                          {(item.qty * item.price * 1.1).toFixed(3)}
                         </Col>
                       </Row>
                     </ListGroup.Item>

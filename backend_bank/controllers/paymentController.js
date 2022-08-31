@@ -11,13 +11,13 @@ const payMoney = asyncHandler(async (req, res) => {
   const user = await User.findOne({ account_number: account_number });
 
   if (user) {
-    user.balance = user.balance - amount;
+    user.balance = Number(user.balance) - Number(amount);
     await user.save();
 
     const receiver = await User.findOne({
       account_number: receiver_account_number,
     });
-    receiver.balance = receiver.balance + amount;
+    receiver.balance = Number(receiver.balance) + Number(amount);
     await receiver.save();
     console.log(user);
     console.log(receiver);
