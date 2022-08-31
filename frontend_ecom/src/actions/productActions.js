@@ -21,7 +21,7 @@ export const listProducts = () => async (dispatch) => {
   try {
     dispatch({ type: PRODUCT_LIST_REQUEST });
 
-    const { data } = await axios.get(`http://127.0.0.1:5000/api/products`);
+    const { data } = await axios.get(`http://127.0.0.1:8000/api/products`);
 
     dispatch({
       type: PRODUCT_LIST_SUCCESS,
@@ -43,7 +43,7 @@ export const listProductDetails = (id) => async (dispatch) => {
     dispatch({ type: PRODUCT_DETAILS_REQUEST });
 
     const { data } = await axios.get(
-      `http://127.0.0.1:5000/api/products/${id}`
+      `http://127.0.0.1:8000/api/products/${id}`
     );
 
     dispatch({
@@ -77,7 +77,7 @@ export const deleteProduct = (id) => async (dispatch, getState) => {
       },
     };
 
-    await axios.delete(`http://127.0.0.1:5000/api/products/${id}`, config);
+    await axios.delete(`http://127.0.0.1:8000/api/products/${id}`, config);
 
     dispatch({
       type: PRODUCT_DELETE_SUCCESS,
@@ -111,7 +111,7 @@ export const createProduct = () => async (dispatch, getState) => {
 
     // we are making a post request but not sending any data. That's why sent a empty object
     const { data } = await axios.post(
-      `http://127.0.0.1:5000/api/products/`,
+      `http://127.0.0.1:8000/api/products/`,
       {},
       config
     );
@@ -149,7 +149,7 @@ export const updateProduct = (product) => async (dispatch, getState) => {
     };
 
     const { data } = await axios.put(
-      `http://127.0.0.1:5000/api/products/${product._id}`,
+      `http://127.0.0.1:8000/api/products/${product._id}`,
       product,
       config
     );
