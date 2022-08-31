@@ -15,7 +15,7 @@ export default function Landing() {
             className='absolute top-0 w-full h-full bg-center bg-cover'
             style={{
               backgroundImage:
-                "url('https://images.unsplash.com/photo-1541354329998-f4d9a9f9297f?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8YmFua3xlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60')",
+                "url('https://cdn.pixabay.com/photo/2015/09/15/15/53/bank-notes-941246_1280.jpg')",
             }}
           >
             <span
