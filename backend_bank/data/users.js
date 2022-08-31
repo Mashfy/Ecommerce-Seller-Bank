@@ -1,7 +1,5 @@
 import bcrypt from 'bcryptjs';
-// a = 11 to z = 36
-// A = 41 to Z = 66
-// @ = 91, . = 92, _ = 93
+
 const users = [
   {
     name: 'Admin',
@@ -19,6 +17,12 @@ const users = [
     name: 'Jack',
     email: 'jack@gmail.com',
     account_number: '2011132191172311192292132523',
+    password: bcrypt.hashSync('password', 10),
+  },
+  {
+    name: 'Supplier',
+    email: 'supplier@gmail.com',
+    account_number: '293126262219152891172311192292132523',
     password: bcrypt.hashSync('password', 10),
   },
 ];

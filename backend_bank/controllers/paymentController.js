@@ -8,21 +8,25 @@ import User from '../models/userModel.js';
 const payMoney = asyncHandler(async (req, res) => {
   const { email, account_number, amount, receiver_account_number } = req.body;
 
-  const user = await User.findOne({ account_number });
+  const user = await User.findOne({ account_number: account_number });
 
   if (user) {
     user.balance = user.balance - amount;
-    const receiver = await User.findOne({ receiver_account_number });
+    await user.save();
+
+    const receiver = await User.findOne({
+      account_number: receiver_account_number,
+    });
     receiver.balance = receiver.balance + amount;
+    await receiver.save();
+    console.log(user);
+    console.log(receiver);
     const transaction = new Transaction({
       sender: user._id,
       receiver: receiver._id,
       transactionAmount: amount,
     });
     const createdTransaction = await transaction.save();
-
-    const updatedUser = await user.save();
-    const updatedReceiver = await receiver.save();
 
     var today = new Date();
     var date =

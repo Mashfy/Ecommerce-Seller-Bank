@@ -74,23 +74,47 @@ const OrderScreen = ({ match }) => {
     navigate,
   ]);
 
-  const payNowHandler = async (total_amount) => {
+  const payNowHandlerforadmin = async (total_price) => {
     const paymentdata = {
       email: order.user.email,
       account_number: order.user.account_number,
-      amount: total_amount,
+      amount: total_price,
       receiver_account_number: '111423192491172311192292132523',
     };
     try {
       const bank_api_call = axios.post(
-        `http://127.0.0.1:7000/bankapi/payment`,
+        `http://127.0.0.1:7000/bankapi/payment/`,
         paymentdata
       );
       bank_api_call.then(function (result) {
         const DataReceivedFromBankApi = {
           id: result.data.id,
-          email: result.data.email,
           status: result.data.status,
+          email: result.data.email,
+          update_time: result.data.update_time,
+        };
+        dispatch(payOrder(orderId, DataReceivedFromBankApi));
+      });
+    } catch (error) {}
+  };
+
+  const payNowHandlerforseller = async (total_price) => {
+    const paymentdata = {
+      email: order.user.email,
+      account_number: order.user.account_number,
+      amount: total_price,
+      receiver_account_number: '293126262219152891172311192292132523',
+    };
+    try {
+      const bank_api_call = axios.post(
+        `http://127.0.0.1:7000/bankapi/payment/`,
+        paymentdata
+      );
+      bank_api_call.then(function (result) {
+        const DataReceivedFromBankApi = {
+          id: result.data.id,
+          status: result.data.status,
+          email: result.data.email,
           update_time: result.data.update_time,
         };
         dispatch(payOrder(orderId, DataReceivedFromBankApi));
@@ -182,7 +206,8 @@ const OrderScreen = ({ match }) => {
                           </Link>
                         </Col>
                         <Col md={4}>
-                          {item.qty} x ${item.price} = ${item.qty * item.price}
+                          {item.qty} x ${item.price * 1.1} = $
+                          {item.qty * item.price * 1.1}
                         </Col>
                       </Row>
                     </ListGroup.Item>
@@ -201,7 +226,7 @@ const OrderScreen = ({ match }) => {
               <ListGroup.Item>
                 <Row>
                   <Col>Items</Col>
-                  <Col>${order.itemsPrice}</Col>
+                  <Col>${order.itemsPrice * 1.1}</Col>
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>
@@ -230,7 +255,10 @@ const OrderScreen = ({ match }) => {
                   type='button'
                   className='btn-block'
                   onClick={() => {
-                    payNowHandler(order.totalPrice);
+                    payNowHandlerforadmin(
+                      order.itemsPrice * 0.1 + order.taxPrice
+                    );
+                    payNowHandlerforseller(order.itemsPrice);
                   }}
                 >
                   Pay Now

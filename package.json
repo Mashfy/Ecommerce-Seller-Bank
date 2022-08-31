@@ -16,7 +16,9 @@
     "data:importEcom": "node backend_ecom/seeder",
     "data:destroyEcom": "node backend_ecom/seeder -d",
     "data:importSeller": "node backend_seller/seeder",
-    "data:destroySeller": "node backend_seller/seeder -d"
+    "data:destroySeller": "node backend_seller/seeder -d",
+    "data:importBank": "node backend_bank/seeder",
+    "data:destroyBank": "node backend_bank/seeder -d"
   },
   "repository": {
     "type": "git",
