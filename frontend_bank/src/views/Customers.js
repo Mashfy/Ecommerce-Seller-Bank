@@ -56,7 +56,7 @@ export default function Customers() {
         <Table className={classes.table} aria-label='customized table'>
           <TableHead>
             <TableRow>
-              <StyledTableCell>S No.</StyledTableCell>
+              <StyledTableCell>Account No.</StyledTableCell>
               <StyledTableCell>Name</StyledTableCell>
               {/* <StyledTableCell align="right">Calories</StyledTableCell> */}
               <StyledTableCell align='center'>Balance</StyledTableCell>
@@ -68,7 +68,7 @@ export default function Customers() {
               return (
                 <StyledTableRow key={item.name}>
                   <StyledTableCell component='th' scope='row'>
-                    {index + 1}
+                    {item.account_number}
                   </StyledTableCell>
                   <StyledTableCell align='left' component='th' scope='row'>
                     {item.name}
