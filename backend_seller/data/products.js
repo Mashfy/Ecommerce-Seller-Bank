@@ -35,18 +35,6 @@ const products = [
     rating: 3,
     numReviews: 12,
   },
-  // {
-  //   name: 'Silver Dollar',
-  //   image: '/images/silverdollar.jpg',
-  //   description:
-  //     ' If you’re looking for drought-tolerant plants, succulents like the Xerosicyos danguyi are fantastic, but it helps to get a container with good drainage like these ceramic and bamboo planters.',
-  //   brand: 'Araceae',
-  //   category: 'Tree',
-  //   price: 16.5,
-  //   countInStock: 8,
-  //   rating: 4.5,
-  //   numReviews: 10,
-  // },
 ];
 
 export default products;
