@@ -88,7 +88,10 @@ npm run dev
 ![](screenshots/ecom5.jpg)
 ![](screenshots/ecom6.jpg)
 ![](screenshots/ecom7.jpg)
-![](screenshots/ecom8.jpg)![](screenshots/ecom9.jpg)![](screenshots/ecom10.jpg)
+![](screenshots/ecom8.jpg)
+![](screenshots/ecom9.jpg)
+![](screenshots/ecom10.jpg)
+![](screenshots/ecom11.jpg)
 </br></br>
 
 ## Supplier:
@@ -104,3 +107,15 @@ npm run dev
 ![](screenshots/bank1.jpg)
 ![](screenshots/bank2.jpg)
 ![](screenshots/bank3.jpg)
+
+## Ecommerce API:
+
+![](screenshots/ecomapi.jpg)
+
+## Supplier API:
+
+![](screenshots/supplierapi.jpg)
+
+## Bank API:
+
+![](screenshots/bankapi.jpg)
